@@ -2,20 +2,22 @@
 
 <h3>Vinilos en venta</h3>
 <div class="row row-cols-1 row-cols-md-3 g-4">
-  <div class="col">
   <% @products.each do |product| %>
-    <div class="card h-100">
-      <img src="" class="card-img-top" alt="">
-        <div class="card-body">
-          <h5 class="card-title"><%= product.name %></h5>
-          <p class="card-text">Artista:<%=product.artist %>
-                               Categoría: <%= product.category %>
-          </p>
+    <%= link_to(product) do %>
+      <div class="col">
+        <div class="card h-100">
+          <img src="" class="card-img-top" alt="">
+            <div class="card-body">
+              <h5 class="card-title"><%= product.name %></h5>
+              <p class="card-text">Artista: <%=product.artist %> <br>
+                                  Categoría: <%= product.category %>
+              </p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Precio: $ <%= product.price %> </small>
+          </div>
         </div>
-        <div class="card-footer">
-        <small class="text-muted">Precio: $ <%= product.price %> </small>
       </div>
-    </div>
     <% end %>
-  </div>
+  <% end %>
 </div>
