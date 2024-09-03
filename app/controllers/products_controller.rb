@@ -26,7 +26,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:nombre, :precio, :categoria, :artista)
+    params.require(:product).permit(:name, :price, :category, :artist)
   end
 
   def set_product
