@@ -3,7 +3,7 @@
 <h3>Vinilos en venta</h3>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <div class="col">
-  <% @products.do |product| %>
+  <% @products.each do |product| %>
     <div class="card h-100">
       <img src="" class="card-img-top" alt="">
         <div class="card-body">
@@ -16,6 +16,6 @@
         <small class="text-muted">Precio: $ <%= product.price %> </small>
       </div>
     </div>
+    <% end %>
   </div>
 </div>
-<%=                      %>
