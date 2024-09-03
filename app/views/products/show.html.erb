@@ -1,0 +1,10 @@
+<div class = "container mt-5">
+  <h1><%= @product.name %></h1>
+  <p>Precio: <%= number_to_currency(@product.price) %></p>
+  <p>Categoría: <%= @product.category %></p>
+  <p>Artista: <%= @product.artist %></p>
+  <%= link_to 'Volver a los productos', products_path %>
+</div>
+
+
+<%# AGREGAR UN TOOGLE %>

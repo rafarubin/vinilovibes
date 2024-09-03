@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -23,11 +24,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy
+    redirect_to products_path status: :see_other
   end
 
   private
 
   def product_params
+    params.require(:product).permit(:name, :price, :category, :artist)
   end
 
   def set_product
