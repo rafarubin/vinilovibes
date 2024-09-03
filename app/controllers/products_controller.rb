@@ -20,13 +20,13 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    redirect_to list_path (@product.list), status: :see_other
+    redirect_to products_path status: :see_other
   end
 
   private
 
   def product_params
-    params.require(:product).permit(:title, :details, :price)
+    params.require(:product).permit(:nombre, :precio, :categoria, :artista)
   end
 
   def set_product

@@ -3,6 +3,8 @@
   <p>Precio: <%= number_to_currency(@product.price) %></p>
   <p>Categoría: <%= @product.category %></p>
   <p>Artista: <%= @product.artist %></p>
+  <%= link_to 'Volver a los productos', products_path %>
 </div>
 
-<%# <%= link_to 'Volver a mis productos', product_purchases_path %>
+
+<%# AGREGAR UN TOOGLE %>
