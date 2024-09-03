@@ -9,6 +9,7 @@ class ProductsController < ApplicationController
   end
 
   def show
+    @product = Product.find(params[:id])
   end
 
   def edit
@@ -18,11 +19,14 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product.destroy
+    redirect_to list_path (@product.list), status: :see_other
   end
 
   private
 
   def product_params
+    params.require(:product).permit(:title, :details, :price)
   end
 
   def set_product
