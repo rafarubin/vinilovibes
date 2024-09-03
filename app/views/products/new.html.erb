@@ -1,0 +1,15 @@
+<div class="card w-50 ">
+  <h1><strong>Registro de nuevo vinilo para venta</strong></h1>
+  <div>
+    <%= simple_form_for @product do |f| %>
+      <%= f.input :name, label: "Nombre del album" %>
+      <%= f.input :price, label: "Precio" %>
+      <%= f.input :category, label: "Categoria" %>
+      <%= f.input :artist, label: "Artista" %>
+      <%= f.submit "Nuevo vinilo", class: "btn-primary" %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "Volver a la lista de vinilos", products_path %>
+  </div>
+</div>
