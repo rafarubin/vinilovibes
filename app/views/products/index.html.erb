@@ -1,5 +1,4 @@
-
-<h1>Vinilo vibes</h1>
+<h1 class="text-center fw-bold">Encuentra nuevos vinilos para tu colección</h1>
 
 <div class="cards">
   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
@@ -15,34 +14,34 @@
   </div>
 </div>
 
+<div class="container d-flex justify-content-between mt-3">
+  <h3 class="mt-3">Vinilos en venta</h3>
 
-<h3>Vinilos en venta</h3>
+  <% if user_signed_in?%>
+  <%= link_to "Agrega un nuevo vinilo", new_product_path, class:"btn btn-dark p-2 m-2" %>
+  <% end%>
+</div>
+<div class="container">
 
-<% if user_signed_in?%>
-<%= link_to "Agrega un nuevo vinilo", new_product_path %>
-<% end%>
-
-
-<div class="row row-cols-1 row-cols-md-3 g-4">
-  <% @products.each do |product| %>
-      <div class="col">
-        <div class="card h-100">
-          <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-              <%= link_to(product) do %>
-                <h5 class="card-title"><%= product.name %></h5>
-              <% end %>
-              <p class="card-text">Artista: <%=product.artist %> <br>
-                                  Categoría: <%= product.category %>
-              </p>
+  <div class="row row-cols-1 row-cols-md-3 g-4 mt-4">
+    <% @products.each do |product| %>
+        <div class="col">
+          <div class="card h-100">
+            <img src="" class="card-img-top" alt="">
+              <div class="card-body">
+                <%= link_to(product) do %>
+                  <h5 class="card-title"><%= product.name %></h5>
+                <% end %>
+                <p class="card-text">Artista: <%=product.artist %> <br>
+                                    Categoría: <%= product.category %>
+                </p>
+              </div>
+              <div class="card-footer">
+              <small class="text-muted">Precio: $ <%= product.price %> </small>
+                <%= link_to "Comprar", new_product_purchase_path(:user_id => @user, :product_id => product.id ), class: "btn btn-dark"%>
             </div>
-            <div class="card-footer">
-            <small class="text-muted">Precio: $ <%= product.price %> </small>
-              <%= link_to "Comprar", new_product_purchase_path(:user_id => @user, :product_id => product.id ), method: "post" %>
           </div>
         </div>
-      </div>
-  <% end %>
-
-
+    <% end %>
+  </div>
 </div>
