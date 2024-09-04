@@ -1,0 +1,16 @@
+<div class="card w-50">
+  <h1><strong>Editar Vinilo</strong></h1>
+  <div>
+    <%= simple_form_for @product do |f| %>
+      <%= f.input :name, label: "Nombre del álbum" %>
+      <%= f.input :price, label: "Precio" %>
+      <%= f.input :category, label: "Categoría" %>
+      <%= f.input :artist, label: "Artista" %>
+      <%= f.submit "Actualizar vinilo", class: "btn-primary" %>
+    <% end %>
+  </div>
+  <div>
+    <%= link_to "Volver a la lista de vinilos", products_path %>
+  </div>
+</div>
+

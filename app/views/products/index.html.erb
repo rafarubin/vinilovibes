@@ -3,23 +3,21 @@
 <h3>Vinilos en venta</h3>
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% @products.each do |product| %>
-    <%= link_to(product) do %>
-      <div class="col">
-        <div class="card h-100">
+    <div class="col">
+      <div class="card h-100">
+        <%= link_to product_path(product) do %>
           <img src="" class="card-img-top" alt="">
-            <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
-              <p class="card-text">Artista: <%=product.artist %> <br>
-                                  Categoría: <%= product.category %>
-              </p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Precio: $ <%= product.price %> </small>
-          </div>
+        <% end %>
+        <div class="card-body">
+          <h5 class="card-title"><%= product.name %></h5>
+          <p class="card-text">Artista: <%= product.artist %><br>
+              Categoría: <%= product.category %></p>
+          <%= link_to 'Editar Vinilo', edit_product_path(product), class: 'btn btn-primary' %>
+        </div>
+        <div class="card-footer">
+          <small class="text-muted">Precio: $ <%= product.price %></small>
         </div>
       </div>
-    <% end %>
+    </div>
   <% end %>
-
-
 </div>
