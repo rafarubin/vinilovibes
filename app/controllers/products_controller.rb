@@ -8,6 +8,14 @@ class ProductsController < ApplicationController
   end
 
   def create
+    @product = Product.new(product_params)
+    @product.user = current_user
+    if @product.save
+      redirect_to product_path(@product), notice: 'Producto creado exitosamente.'
+    else
+      render :new, alert: 'Error al crear el producto.'
+    end
+
   end
 
   def show
@@ -31,7 +39,7 @@ class ProductsController < ApplicationController
   private
 
   def product_params
-    params.require(:product).permit(:name, :price, :category, :artist)
+    params.require(:product).permit(:name, :price, :category, :artist, :user_id)
   end
 
   def set_product
