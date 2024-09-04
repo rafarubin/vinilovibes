@@ -38,7 +38,7 @@
             </div>
             <div class="card-footer">
             <small class="text-muted">Precio: $ <%= product.price %> </small>
-              <%= link_to "Comprar", product_purchases_path(:user_id => @user, :product_id => product.id ), method: "post" %>
+              <%= link_to "Comprar", new_product_purchase_path(:user_id => @user, :product_id => product.id ), method: "post" %>
           </div>
         </div>
       </div>
