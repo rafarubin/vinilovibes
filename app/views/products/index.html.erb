@@ -1,13 +1,25 @@
 
 <h1>Vinilo vibes</h1>
 
+<div class="cards">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
+    Rock
+  </div>
 
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/pop-singer.jpg") %>')">
+    Pop
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/jazz.jpg") %>')">
+    Jazz
+  </div>
+</div>
 
 
 <h3>Vinilos en venta</h3>
 
 <% if user_signed_in?%>
-<%= link_to "Agrega un nuevo producto", new_product_path %>
+<%= link_to "Agrega un nuevo vinilo", new_product_path %>
 <% end%>
 
 
