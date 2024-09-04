@@ -4,7 +4,13 @@
   <p>Categoría: <%= @product.category %></p>
   <p>Artista: <%= @product.artist %></p>
   <%= link_to 'Volver a los productos', products_path %>
+  <%# <%= link_to 'Edit', edit_products_path %>
+  <%# <%= link_to 'Purchase/buy', edit_products_path %>
+  <%# <%= link_to 'destroy', edit_products_path %>
 </div>
 
 
-<%# AGREGAR UN TOOGLE %>
+<%# AGREGAR UN TOOGLE y un link de edit
+<div data-controller="toggle" class="mt-5">
+  <button class="btn btn-outline-primary">Add a new monument</button>
+  <%= render "form", monument: @monument %>
