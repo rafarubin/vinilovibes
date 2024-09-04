@@ -7,8 +7,9 @@
       <p><strong>Categoría: </strong><%= @product.category %></p>
       <p><strong>Precio $: </strong>  <%= @product.price %></p>
     </div>
-    <%= simple_form_for @product do |f| %>
-      <%= f.hidden_field :product_id, value: @product.id %>
+    <%= simple_form_for [@product, @purchase] do |f| %>
+      <%# No se pasan por params el product_id que viene del URL %>
+      <%#= f.hidden_field :product_id, value: @product.id %>
       <%= f.hidden_field :user_id, value: current_user.id %>
       <%= f.submit "Comprar!", class: "btn-primary" %>
     <% end %>
