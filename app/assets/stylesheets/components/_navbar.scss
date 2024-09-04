@@ -1,12 +1,24 @@
-.navbar-lewagon {
+.navbar-vinilovibes {
   justify-content: space-between;
-  background: white;
+  background: rgb(0, 0, 0);
 }
 
-.navbar-lewagon .navbar-collapse {
+.navbar-vinilovibes .navbar-collapse {
   flex-grow: 0;
 }
 
-.navbar-lewagon .navbar-brand img {
+.navbar-vinilovibes .navbar-brand img {
   width: 40px;
+}
+
+.logo {
+  width: 200px;
+}
+
+.navbar-nav .nav-link {
+  color: white;
+}
+
+.welcome {
+  color: white;
 }
