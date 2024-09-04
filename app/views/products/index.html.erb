@@ -1,63 +1,34 @@
 
 <h1>Vinilo vibes</h1>
-<div class="container-fluid vw-100 vh-20 p-0 m-0 fill">
-  <div id="carouselExampleDark" class="carousel carousel-dark slide " data-bs-ride="carousel">
-    <div class="carousel-indicators">
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
-      <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
-    </div>
-    <div class="carousel-inner">
-      <div class="carousel-item active" data-bs-interval="10000">
-       <%= image_tag "index/rock.jpg", class: "d-block w-100", alt:"rock band photo" %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Explora vinilos de Rock</h5>
-          <p>Some representative placeholder content for the first slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item" data-bs-interval="2000">
-       <%= image_tag "index/pop-singer.jpg", class: "d-block w-100", alt:"pop singer photo" %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Explora vinilos de Pop</h5>
-          <p>Some representative placeholder content for the second slide.</p>
-        </div>
-      </div>
-      <div class="carousel-item">
-       <%= image_tag "index/jazz.jpg", class: "d-block w-100", alt:"jazz band photo" %>
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Explora vinilos de Jazz</h5>
-          <p>Some representative placeholder content for the third slide.</p>
-        </div>
-      </div>
-    </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
-  </div>
-</div>
+
+
+
+
 <h3>Vinilos en venta</h3>
+
+<% if user_signed_in?%>
+<%= link_to "Agrega un nuevo producto", new_product_path %>
+<% end%>
+
+
 <div class="row row-cols-1 row-cols-md-3 g-4">
   <% @products.each do |product| %>
-    <%= link_to(product) do %>
       <div class="col">
         <div class="card h-100">
           <img src="" class="card-img-top" alt="">
             <div class="card-body">
-              <h5 class="card-title"><%= product.name %></h5>
+              <%= link_to(product) do %>
+                <h5 class="card-title"><%= product.name %></h5>
+              <% end %>
               <p class="card-text">Artista: <%=product.artist %> <br>
                                   Categoría: <%= product.category %>
               </p>
             </div>
             <div class="card-footer">
             <small class="text-muted">Precio: $ <%= product.price %> </small>
+              <%= link_to "Comprar", product_purchases_path(:user_id => @user, :product_id => product.id ), method: "post" %>
           </div>
         </div>
       </div>
-    <% end %>
   <% end %>
 </div>
