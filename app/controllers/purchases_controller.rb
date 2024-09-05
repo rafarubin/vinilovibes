@@ -8,7 +8,8 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     @purchase.user = current_user
     @purchase.product = Product.find(params[:product_id])
-
+    @product = Product.find(params[:product_id])
+    @product.sold = true
     if @purchase.save
       redirect_to product_path(@purchase.product), notice: 'Compra realizada con éxito.'
     else

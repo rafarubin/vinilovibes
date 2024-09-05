@@ -1,0 +1,15 @@
+<div class = "container mt-5">
+  <h1>Mis Ventas</h1>
+  <p><strong>Usuario: </strong><%= current_user.email %></p>
+</div>
+
+<div  class = "container mt-5">
+  <% @mysells.each do |sell| %>
+    <div class="card h-50">
+      <p><strong><%= sell.name %></strong></p>
+      <p><%= sell.artist %></p>
+      <p><%= sell.category %></p>
+      <p><%= sell.price %></p>
+    </div>
+  <% end %>
+</div>
