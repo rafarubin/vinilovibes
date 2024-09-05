@@ -1,16 +1,19 @@
-<div class = "container mt-5">
-  <h1><%= @product.name %></h1>
-  <p>Precio: <%= number_to_currency(@product.price) %></p>
-  <p>Categoría: <%= @product.category %></p>
-  <p>Artista: <%= @product.artist %></p>
-  <%= link_to 'Volver a los productos', products_path, class: "btn btn-secondary" %>
+<div class = "container mt-5 text-justify product-background">
+  <img src="<%= asset_path('vinyla.jpg') %>"class="img-fluid" alt="Responsive image">
 
-    <% if current_user == @product.user %>
-      <%= link_to 'Editar', edit_product_path(@product), class: "btn btn-warning" %>
-      <%= link_to "Borrar", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "¿Estas segur@ que deseas borrar el articulo?" }, class: "btn btn-danger" %>
-    <% else %>
-      <!-- Si el usuario es un comprador -->
-      <%= link_to 'Comprar', new_product_purchase_path(@product), class: "btn btn-info" %>
-    <% end %>
+  <div class="text-overlay">
+    <h1><%= @product.name %></h1>
+    <p>Precio: <%= number_to_currency(@product.price) %></p>
+    <p>Categoría: <%= @product.category %></p>
+    <p>Artista: <%= @product.artist %></p>
+    <%= link_to 'Volver a los productos', products_path, class: "btn btn-secondary" %>
 
+      <% if current_user == @product.user %>
+        <%= link_to 'Editar', edit_product_path(@product), class: "btn btn-warning" %>
+        <%= link_to "Borrar", product_path(@product), data: { turbo_method: :delete, turbo_confirm: "¿Estas segur@ que deseas borrar el articulo?" }, class: "btn btn-danger" %>
+      <% else %>
+        <!-- Si el usuario es un comprador -->
+        <%= link_to 'Comprar', new_product_purchase_path(@product), class: "btn btn-info" %>
+      <% end %>
+  </div>
 </div>
