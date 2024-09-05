@@ -1,5 +1,6 @@
 class ProductsController < ApplicationController
   skip_before_action :authenticate_user!, only: %i[index show]
+  before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def index
     @products = Product.all
@@ -35,8 +36,9 @@ class ProductsController < ApplicationController
   end
 
   def destroy
+    @product = Product.find(params[:id])
     @product.destroy
-    redirect_to products_path status: :see_other
+    redirect_to products_path, status: :see_other
   end
 
   private
@@ -46,5 +48,7 @@ class ProductsController < ApplicationController
   end
 
   def set_product
+    @product = Product.find_by(id: params[:id])
+    redirect_to products_path, alert: "El vinilo no existe" if @product.nil?
   end
 end
