@@ -1,6 +1,32 @@
 // Import page-specific CSS files here.
 @import "home";
 
+.bg-image{
+  background-image: url('index/vinyl-7607944_1280.jpg');
+  background-size: cover;
+
+}
+
+.carousel-wrapper{
+  height: 700px;
+}
+
+.drk:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: black;
+  opacity: 0.6;
+  z-index: 1;
+}
+
+.carousel-caption {
+  z-index: 2;
+}
 .card-category {
   background-size: cover;
   background-position: center;
