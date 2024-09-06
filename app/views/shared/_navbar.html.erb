@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-vinilovibes">
+<div class="navbar navbar-expand-sm navbar-light navbar-vinilovibes fixed-top">
   <div class="container-fluid">
     <%= link_to root_path do %>
       <%= image_tag "VINILOVIBESLOGO.png", alt: "alttext", class: "logo" %>
@@ -11,12 +11,12 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <p class="welcome btn btn-outline-dark"> Bienvenid@ <%= current_user.email %> </p>
+          <p class="welcome btn-disabled me-3"> Bienvenid@ <%= current_user.email %> </p>
             <li class="nav-item">
           <%= link_to "Home", products_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-bs-toggle': "dropdown", 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag "profilepic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-bs-toggle': "dropdown", 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mi perfil", edit_user_registration_path, class: "dropdown-item" %>
               <%# <%= link_to "Mis ventas", my_sales_path, class: "dropdown-item" %> %>
@@ -26,7 +26,7 @@
             </div>
           </li>
         <% else %>
-          <li class="nav-item btn btn-outline-primary">
+          <li class="nav-item btn btn-outline-primary me-3">
             <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
           </li>
           <li class="nav-item btn btn-warning">
