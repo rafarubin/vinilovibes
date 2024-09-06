@@ -9,6 +9,7 @@
         <%= f.input :price, label: "Precio" %>
         <%= f.input :category, label: "Categoria" %>
         <%= f.input :artist, label: "Artista" %>
+        <%= f.input :photo, as: :file, label: "Foto de portada" %>
         <%#= f.association :user_id, label: "Usuario" %>
         <%= f.submit "Nuevo vinilo", class: "btn btn-primary fs-5" %>
       <% end %>
