@@ -4,33 +4,43 @@
 </div>
 
 <div  class = "container mt-5 text-justify product-background" style="max-width: 70%;">
-  <img src="<%= asset_path('vinyla.jpg') %>"class="img-fluid" alt="Responsive image">
+
   <% @myproducts.each do |prod| %>
-    <div class="card w-20 mb-4" style="border-radius: 15px; padding: 20px;">
-      <h3><strong><%= prod.name %></strong></h3>
-      <p><strong>Artista</strong>: <%= prod.artist %></p>
-      <p><strong>Categoría</strong>: <%= prod.category %></p>
-      <p><strong>Precio ($)</strong>:<strong> <%= prod.price %></strong></p>
+    <div class="card w-20 mb-4 d-flex" style="border-radius: 15px; padding: 20px; background-size: cover; background-position: center;">
       <div>
-        <% if prod.sold %>
-          <div class="card" style="width: 19rem;">
-            <div class="card-header" style="background-color: #68C44A; color: #333;">
-              <strong>VENDIDO</strong>
+        <h3><strong><%= prod.name %></strong></h3>
+        <p><strong>Artista</strong>: <%= prod.artist %></p>
+        <p><strong>Categoría</strong>: <%= prod.category %></p>
+        <p><strong>Precio ($)</strong>:<strong> <%= prod.price %></strong></p>
+        <div>
+          <% if prod.sold %>
+            <div class="card" style="width: 19rem;">
+              <div class="card-header" style="background-color: #68C44A; color: #333;">
+                <strong>VENDIDO</strong>
+              </div>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">Fecha de venta: <%= prod.updated_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
+              </ul>
             </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">Fecha de venta: <%= prod.updated_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
-            </ul>
-          </div>
-        <% else %>
+          <% else %>
           <div class="card" style="width: 19rem;">
             <div class="card-header" style="background-color: #CED563; color: #333;">
               <strong>PUBLICADO</strong>
             </div>
             <ul class="list-group list-group-flush">
-              <li class="list-group-item">Fecha de venta: <%= prod.created_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
+              <li class="list-group-item">Fecha de publicación: <%= prod.created_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
             </ul>
           </div>
-        <% end %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="mt-3">
+        <div class="text-end">
+            <% if prod.photo.key.present? %>
+              <%= cl_image_tag prod.photo.key, height: 300, width: 400, crop: :fill, class: "product-photo"  %>
+            <% end %>
+        </div>
       </div>
     </div>
   <% end %>

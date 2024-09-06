@@ -7,18 +7,29 @@
   color: rgb(255, 255, 255);
   border-radius: .25rem;
 }
-.product-background img {
-  display: none;
-}
+
+
 
 .text-overlay {
   position: relative;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para mejorar la legibilidad del texto */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 60px;
   border-radius: 25px;
 }
 
 .product-background{
   max-width: 80%;
+}
+
+
+.btn-disabled {
+  background-color: #000000;
+  border: 1px solid #000;
+  color: #ffffff;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.25rem;
+  cursor: default;
+  pointer-events: none;
+  text-align: center;
 }

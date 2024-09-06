@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
   belongs_to :user
   has_many :purchases, dependent: :destroy
+  has_one_attached :photo
+
   validates :name, :price, :category, :artist, presence: true
   include PgSearch::Model
   pg_search_scope :search_product,
