@@ -10,6 +10,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
   resources :products do
+    collection do
+      get :mybuy
+      get :mysell
+    end
+
     resources :purchases, only: [:new, :create]
   end
 end

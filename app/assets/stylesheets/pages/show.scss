@@ -14,18 +14,23 @@
 .text-overlay {
   position: relative;
   z-index: 1;
-  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para mejorar la legibilidad del texto */
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 60px;
   border-radius: 25px;
 }
 
+.product-background{
+  max-width: 80%;
+}
+
+
 .btn-disabled {
-  background-color: #000000; /* Color de fondo similar al botón */
+  background-color: #000000;
   border: 1px solid #000; /* Bordes similares */
-  color: #ffffff; /* Color del texto */
+  color: #ffffff;
   padding: 0.375rem 0.75rem; /* Espaciado similar al de un botón */
   border-radius: 0.25rem; /* Bordes redondeados */
   cursor: default; /* No interactivo */
-  pointer-events: none; /* Deshabilitar interacciones */
-  text-align: center; /* Alineación del texto */
+  pointer-events: none;
+  text-align: center;
 }

@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @user = current_user
+    if params[:query].present?
+      @products = Product.search_product(params[:query])
+    end
   end
 
   def new
@@ -39,6 +42,17 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     redirect_to products_path, status: :see_other
+  end
+
+  def mysell
+    @myproducts = Product.where(user_id: current_user.id)
+  end
+
+  def mybuy
+    # todas mis compras (id en purchase)
+    @purchase = Purchase.where(user_id: current_user.id)
+    # juntar products con purchases y buscar con where dentro de purchase los registros con user_id = current_user.id
+    @product = Product.joins(:purchases).where(purchases: { user_id: current_user.id }).all
   end
 
   private
