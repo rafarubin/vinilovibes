@@ -1,20 +1,24 @@
-<div class="card w-50 ">
-  <h1><strong>Confirmación de compra</strong></h1>
-  <div>
+<div class="container mt-5 text-justify product-background">
+  <img src="<%= asset_path('vinyl-play.jpg') %>"class="img-fluid" alt="Responsive image">
+
+  <div class="text-overlay">
+    <h1><strong>Confirmación de Compra</strong></h1>
     <div>
-      <p><strong>Producto: </strong><%= @product.name %></p>
-      <p><strong>Artista: </strong><%= @product.artist %></p>
-      <p><strong>Categoría: </strong><%= @product.category %></p>
-      <p><strong>Precio $: </strong>  <%= @product.price %></p>
+      <div>
+        <p><strong>Producto: </strong><%= @product.name %></p>
+        <p><strong>Artista: </strong><%= @product.artist %></p>
+        <p><strong>Categoría: </strong><%= @product.category %></p>
+        <p><strong>Precio $: </strong>  <%= @product.price %></p>
+      </div>
+      <%= simple_form_for [@product, @purchase] do |f| %>
+        <%# No se pasan por params el product_id que viene del URL %>
+        <%#= f.hidden_field :product_id, value: @product.id %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+        <%= f.submit "Comprar!", class: "btn btn-primary fs-4" %>
+      <% end %>
     </div>
-    <%= simple_form_for [@product, @purchase] do |f| %>
-      <%# No se pasan por params el product_id que viene del URL %>
-      <%#= f.hidden_field :product_id, value: @product.id %>
-      <%= f.hidden_field :user_id, value: current_user.id %>
-      <%= f.submit "Comprar!", class: "btn-primary" %>
-    <% end %>
-  </div>
-  <div>
-    <%= link_to "Volver a la lista de vinilos", products_path %>
+    <div>
+      <%= link_to "Volver a la lista de vinilos", products_path, class:"btn btn-warning fw-bold fs-6", style: "margin-top: 20px;" %>
+    </div>
   </div>
 </div>
