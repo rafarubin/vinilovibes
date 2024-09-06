@@ -43,40 +43,40 @@
 
 <div class="cards">
 
-  <%= link_to products_path(:query => "rock"), class:"link-dark" do%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
+  <%= link_to products_path(:query => "rock"), class:"link-dark category-link" do%>
+    <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
       Rock
     </div>
   <% end %>
 
-  <%= link_to products_path(:query => "pop"), class:"link-dark" do%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/pop-singer.jpg") %>')">
+  <%= link_to products_path(:query => "pop"), class:"link-dark category-link" do%>
+    <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/pop-singer.jpg") %>')">
       Pop
     </div>
   <% end %>
 
-  <%= link_to products_path(:query => "jazz"), class:"link-dark" do%>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/jazz.jpg") %>')">
+  <%= link_to products_path(:query => "jazz"), class:"link-dark category-link" do%>
+    <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/jazz.jpg") %>')">
       Jazz
     </div>
   <% end %>
 
-  <%= link_to products_path(:query => "funk"), class:"link-dark" do%>
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/funk.jpg") %>')">
+  <%= link_to products_path(:query => "funk"), class:"link-dark category-link" do%>
+  <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/funk.jpg") %>')">
     Funk
   </div>
   <% end %>
 
 
-  <%= link_to products_path(:query => "electro"), class:"link-dark" do%>
-   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/electro.jpg") %>')">
+  <%= link_to products_path(:query => "electro"), class:"link-dark category-link" do%>
+   <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/electro.jpg") %>')">
     Electro
   </div>
   <% end %>
 
 
-  <%= link_to products_path(:query => "reggae"), class:"link-dark" do%>
-   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/reggae.jpg") %>')">
+  <%= link_to products_path(:query => "reggae"), class:"link-dark category-link" do%>
+   <div class="card-category category-hover" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/reggae.jpg") %>')">
     Reggae
   </div>
     <% end %>
@@ -106,10 +106,10 @@
     <div class="row row-cols-1 row-cols-md-3 g-4">
       <% @products.each do |product| %>
           <div class="col">
-            <div class="card h-100 shadow">
-              <img src="" class="card-img-top" alt="">
-                <div class="card-body">
                   <%= link_to product, class:"link-dark" do %>
+            <div class="card index-card h-100 shadow">
+              <%= cl_image_tag product.photo.key, class:"p-2", height: 300, width: 400, crop: :fill %>
+                <div class="card-body">
                     <h5 class="card-title link-dark"><%= product.name %></h5>
                   <% end %>
                   <p class="card-text">Artista: <%=product.artist %> <br>
@@ -117,8 +117,11 @@
                   </p>
                 </div>
                 <div class="card-footer d-flex justify-content-between align-items-center">
-                  <small class="text-muted">Precio: $ <%= product.price %> </small>
+                  <small class="text-muted">Precio: <br> $ <%= product.price %> </small>
+                  <% unless @user.id == product.user_id %>
+                  <span> Agrégalo a tu colección <br> de <%= product.category %>!</span>
                   <%= link_to "Comprar", new_product_purchase_path(:user_id => @user, :product_id => product.id ), class: "btn btn-dark"%>
+                  <% end %>
                 </div>
             </div>
           </div>
