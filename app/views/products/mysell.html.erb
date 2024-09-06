@@ -1,19 +1,20 @@
-<div class = "container mt-5" style="max-width: 60%;">
+<div class = "container mt-5" style="max-width: 70%;">
   <h1>Mis Productos</h1>
   <p><strong>Usuario: </strong><%= current_user.email %></p>
 </div>
 
-<div  class = "container mt-5" style="max-width: 60%;">
+<div  class = "container mt-5 text-justify product-background" style="max-width: 70%;">
+  <img src="<%= asset_path('vinyla.jpg') %>"class="img-fluid" alt="Responsive image">
   <% @myproducts.each do |prod| %>
-    <div class="card h-50 w-20">
-      <p><strong><%= prod.name %></strong></p>
-      <p><%= prod.artist %></p>
-      <p><%= prod.category %></p>
-      <p><%= prod.price %></p>
-      <div class="d-inline-flex">
+    <div class="card w-20 mb-4" style="border-radius: 15px; padding: 20px;">
+      <h3><strong><%= prod.name %></strong></h3>
+      <p><strong>Artista</strong>: <%= prod.artist %></p>
+      <p><strong>Categoría</strong>: <%= prod.category %></p>
+      <p><strong>Precio ($)</strong>:<strong> <%= prod.price %></strong></p>
+      <div>
         <% if prod.sold %>
           <div class="card" style="width: 19rem;">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #68C44A; color: #333;">
               <strong>VENDIDO</strong>
             </div>
             <ul class="list-group list-group-flush">
@@ -22,7 +23,7 @@
           </div>
         <% else %>
           <div class="card" style="width: 19rem;">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #CED563; color: #333;">
               <strong>PUBLICADO</strong>
             </div>
             <ul class="list-group list-group-flush">

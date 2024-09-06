@@ -1,18 +1,19 @@
-<div class = "container mt-5"  style="max-width: 60%;">
+<div class = "container mt-5"  style="max-width: 70%;">
   <h1>Mis Compras</h1>
   <p><strong>Usuario: </strong><%= current_user.email %></p>
 </div>
 
-<div  class = "container mt-5" style="max-width: 60%;">
+<div  class = "container mt-5 text-justify product-background" style="max-width: 70%;">
+  <img src="<%= asset_path('vinyla.jpg') %>"class="img-fluid" alt="Responsive image">
   <% @product.each do |buy| %>
-    <div class="card h-50">
-      <p><strong><%= buy.name %></strong></p>
-      <p><%= buy.artist %></p>
-      <p><%= buy.category %></p>
-      <p><%= buy.price %></p>
-      <div class="d-inline-flex">
+    <div class="card w-20 mb-4" style="border-radius: 15px; padding: 20px;">
+      <h3><strong><%= buy.name %></strong></h3>
+      <p><strong>Artista</strong>: <%= buy.artist %></p>
+      <p><strong>Categoría</strong>: <%= buy.category %></p>
+      <p><strong>Precio ($)</strong>: <strong><%= buy.price %></strong></p>
+      <div>
         <div class="card" style="width: 19rem;">
-            <div class="card-header">
+            <div class="card-header" style="background-color: #92C7CF; color: #333;">
               <strong>COMPRADO</strong>
             </div>
             <ul class="list-group list-group-flush">
