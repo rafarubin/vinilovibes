@@ -1,25 +1,27 @@
-<div class="card mx-auto mt-5 p-4 shadow" style="max-width: 600px;">
-  <h1 class="text-center"><strong>Editar Vinilo</strong></h1>
-  <div class="card-body">
-    <%= simple_form_for @product, html: { class: "form-horizontal" } do |f| %>
-      <div class="mb-3">
-        <%= f.input :name, label: "Nombre del álbum", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
-      </div>
-      <div class="mb-3">
-        <%= f.input :price, label: "Precio", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
-      </div>
-      <div class="mb-3">
-        <%= f.input :category, label: "Categoría", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
-      </div>
-      <div class="mb-3">
-        <%= f.input :artist, label: "Artista", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
-      </div>
-      <div class="text-center">
-        <%= f.submit "Actualizar vinilo", class: "btn btn-primary w-100" %>
-      </div>
-    <% end %>
-  </div>
-  <div class="card-footer text-center">
-    <%= link_to "Volver a la lista de vinilos", products_path, class: "btn btn-link" %>
+<div class="product-background mx-auto mt-5 p-2 shadow edit-product">
+  <div class="text-overlay">
+    <h1 class="text-center"><strong>Editar Vinilo</strong></h1>
+    <div class="card-body">
+      <%= simple_form_for @product, html: { class: "form-horizontal" } do |f| %>
+        <div class="mb-3">
+          <%= f.input :name, label: "Nombre del álbum", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
+        </div>
+        <div class="mb-3">
+          <%= f.input :price, label: "Precio", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
+        </div>
+        <div class="mb-3">
+          <%= f.input :category, label: "Categoría", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
+        </div>
+        <div class="mb-3">
+          <%= f.input :artist, label: "Artista", input_html: { class: "form-control" }, label_html: { class: "form-label" } %>
+        </div>
+        <div class="text-center">
+          <%= f.submit "Actualizar vinilo", class: "btn btn-primary w-100" %>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-footer text-center">
+      <%= link_to "Volver a la lista de vinilos", products_path, class: "btn btn-link" %>
+    </div>
   </div>
 </div>
