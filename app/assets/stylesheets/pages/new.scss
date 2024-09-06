@@ -1,0 +1,24 @@
+.product-background-buy {
+  background-image: url('vinyl-play.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  padding: 120px;
+  color: rgb(255, 255, 255);
+  border-radius: .25rem;
+}
+.product-background-buy img {
+  display: none;
+}
+
+.text-overlay {
+  position: relative;
+  z-index: 1;
+  background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente para mejorar la legibilidad del texto */
+  padding: 60px;
+  border-radius: 25px;
+}
+
+.product-background-buy{
+  max-width: 80%;
+}
