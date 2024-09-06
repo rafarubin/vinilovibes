@@ -1,16 +1,20 @@
-<div class="card w-50 ">
-  <h1><strong>Registro de nuevo vinilo para venta</strong></h1>
-  <div>
-    <%= simple_form_for @product do |f| %>
-      <%= f.input :name, label: "Nombre del album" %>
-      <%= f.input :price, label: "Precio" %>
-      <%= f.input :category, label: "Categoria" %>
-      <%= f.input :artist, label: "Artista" %>
-      <%#= f.association :user_id, label: "Usuario" %>
-      <%= f.submit "Nuevo vinilo", class: "btn-primary" %>
-    <% end %>
+<div class="container mt-5 text-justify product-background">
+  <img src="<%= asset_path('vinyla.jpg') %>"class="img-fluid" alt="Responsive image">
+
+  <div class="text-overlay">
+    <h1><strong>Registro de nuevo vinilo para venta</strong></h1>
+    <div>
+      <%= simple_form_for @product do |f| %>
+        <%= f.input :name, label: "Nombre del album" %>
+        <%= f.input :price, label: "Precio" %>
+        <%= f.input :category, label: "Categoria" %>
+        <%= f.input :artist, label: "Artista" %>
+        <%#= f.association :user_id, label: "Usuario" %>
+        <%= f.submit "Nuevo vinilo", class: "btn btn-primary fs-5" %>
+      <% end %>
+    </div>
   </div>
   <div>
-    <%= link_to "Volver a la lista de vinilos", products_path %>
+    <%= link_to "Volver a la lista de vinilos", products_path, class:"btn btn-warning fw-bold fs-6", style: "margin-top: 20px;" %>
   </div>
 </div>

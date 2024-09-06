@@ -8,8 +8,11 @@ class PurchasesController < ApplicationController
     @purchase = Purchase.new(purchase_params)
     @purchase.user = current_user
     @purchase.product = Product.find(params[:product_id])
-
+    @product = Product.find(params[:product_id])
+    @product.sold = true
     if @purchase.save
+      @purchase.save
+      @product.save
       redirect_to product_path(@purchase.product), notice: 'Compra realizada con éxito.'
     else
       render :new, alert: 'Error al realizar la compra.', status: :unprocessable_entity

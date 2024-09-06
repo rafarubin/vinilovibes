@@ -1,0 +1,36 @@
+<div class = "container mt-5" style="max-width: 60%;">
+  <h1>Mis Productos</h1>
+  <p><strong>Usuario: </strong><%= current_user.email %></p>
+</div>
+
+<div  class = "container mt-5" style="max-width: 60%;">
+  <% @myproducts.each do |prod| %>
+    <div class="card h-50 w-20">
+      <p><strong><%= prod.name %></strong></p>
+      <p><%= prod.artist %></p>
+      <p><%= prod.category %></p>
+      <p><%= prod.price %></p>
+      <div class="d-inline-flex">
+        <% if prod.sold %>
+          <div class="card" style="width: 19rem;">
+            <div class="card-header">
+              <strong>VENDIDO</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Fecha de venta: <%= prod.updated_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
+            </ul>
+          </div>
+        <% else %>
+          <div class="card" style="width: 19rem;">
+            <div class="card-header">
+              <strong>PUBLICADO</strong>
+            </div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item">Fecha de venta: <%= prod.created_at.in_time_zone('America/Lima').strftime("%d/%m/%Y %H:%M") %></li>
+            </ul>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -41,6 +41,17 @@ class ProductsController < ApplicationController
     redirect_to products_path, status: :see_other
   end
 
+  def mysell
+    @myproducts = Product.where(user_id: current_user.id)
+  end
+
+  def mybuy
+    # todas mis compras (id en purchase)
+    @purchase = Purchase.where(user_id: current_user.id)
+    # juntar products con purchases y buscar con where dentro de purchase los registros con user_id = current_user.id
+    @product = Product.joins(:purchases).where(purchases: { user_id: current_user.id }).all
+  end
+
   private
 
   def product_params
