@@ -5,6 +5,9 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @user = current_user
+    if params[:query].present?
+      @products = Product.search_product(params[:query])
+    end
   end
 
   def new
