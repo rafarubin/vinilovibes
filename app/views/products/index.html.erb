@@ -42,36 +42,63 @@
 <h3 class="mt-3 fw-bold">Explora nuestras categorías</h3>
 
 <div class="cards">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
-    Rock
-  </div>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/pop-singer.jpg") %>')">
-    Pop
-  </div>
+  <%= link_to products_path(:query => "rock"), class:"link-dark" do%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/rock.jpg") %>')">
+      Rock
+    </div>
+  <% end %>
 
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/jazz.jpg") %>')">
-    Jazz
-  </div>
+  <%= link_to products_path(:query => "pop"), class:"link-dark" do%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/pop-singer.jpg") %>')">
+      Pop
+    </div>
+  <% end %>
 
-   <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/funk.jpg") %>')">
+  <%= link_to products_path(:query => "jazz"), class:"link-dark" do%>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/jazz.jpg") %>')">
+      Jazz
+    </div>
+  <% end %>
+
+  <%= link_to products_path(:query => "funk"), class:"link-dark" do%>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/funk.jpg") %>')">
     Funk
   </div>
+  <% end %>
 
+
+  <%= link_to products_path(:query => "electro"), class:"link-dark" do%>
    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/electro.jpg") %>')">
     Electro
   </div>
+  <% end %>
 
+
+  <%= link_to products_path(:query => "reggae"), class:"link-dark" do%>
    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= asset_path("index/reggae.jpg") %>')">
     Reggae
   </div>
+    <% end %>
+
 </div>
 
-<div class="container d-flex justify-content-between mt-3">
+<div class="container d-flex justify-content-between align-items-center mt-3 mb-3">
   <h3 class="mt-3 fw-bold">Vinilos en venta</h3>
+  <div class="justify-content-center">
+
+    <%= form_with url: products_path, method: :get, class: "d-flex" do %>
+    <%= text_field_tag :query,
+              params[:query],
+              class: "form-control",
+              placeholder: "Busca un vinilo"
+          %>
+        <%= submit_tag "Buscar", name: "", class: "btn btn-success" %>
+      <% end %>
+</div>
 
   <% if user_signed_in?%>
-  <%= link_to "Agregar un nuevo vinilo", new_product_path, class:"btn btn-dark p-2 m-2" %>
+  <%= link_to "Agregar un nuevo vinilo", new_product_path, class:"btn btn-success p-2 m-2" %>
   <% end%>
 </div>
 <div class="bg-image p-4">
