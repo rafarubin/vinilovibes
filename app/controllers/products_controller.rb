@@ -42,8 +42,7 @@ class ProductsController < ApplicationController
   end
 
   def mysell
-    myproducts = Product.where(user_id: current_user.id)
-    @mysells = myproducts.joins(:purchases).all
+    @myproducts = Product.where(user_id: current_user.id)
   end
 
   def mybuy
