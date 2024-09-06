@@ -42,6 +42,31 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
 }
 
+.card{
+  transition: all 0.2s ease;
+  cursor: pointer;
+  span{
+    font-size: small;
+    visibility: hidden;
+    text-align: end;
+    color: rgb(116, 116, 116);;
+  }
+}
+.card:hover{
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1);
+  small{
+    font-weight: bold;
+  }
+  span{
+    visibility: visible;
+  }
+  a{
+    background-color: rgb(30, 221, 136);
+    border-color: rgb(30, 221, 136);
+    color: rgb(0, 0, 0)
+  }
+}
 .cards {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
