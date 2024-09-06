@@ -3,8 +3,12 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:edit, :update, :show, :destroy]
 
   def index
-    @products = Product.all
-    @user = current_user
+    if user_signed_in?
+      @user = current_user
+      @products = Product.where("sold = ? AND user_id != ?", false, @user.id)
+    else
+      @products = Product.where(sold: false)
+    end
     if params[:query].present?
       @products = Product.search_product(params[:query])
     end
