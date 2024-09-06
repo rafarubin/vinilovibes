@@ -1,4 +1,4 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-vinilovibes fixed-top">
+<div class="navbar navbar-expand-sm navbar-light navbar-vinilovibes sticky-top">
   <div class="container-fluid">
     <%= link_to root_path do %>
       <%= image_tag "VINILOVIBESLOGO.png", alt: "alttext", class: "logo" %>
@@ -19,8 +19,8 @@
             <%= image_tag "profilepic.jpg", class: "avatar dropdown-toggle", id: "navbarDropdown", 'data-bs-toggle': "dropdown", 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <%= link_to "Mi perfil", edit_user_registration_path, class: "dropdown-item" %>
-              <%# <%= link_to "Mis ventas", my_sales_path, class: "dropdown-item" %> %>
-              <%# <%= link_to "Mis compras", my_purchases_path, class: "dropdown-item" %> %>
+              <%= link_to "Mis ventas", mysell_products_path, class: "dropdown-item"%>
+              <%= link_to "Mis compras", mybuy_products_path, class: "dropdown-item"%>
               <%= link_to "Log out", destroy_user_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
 
             </div>
