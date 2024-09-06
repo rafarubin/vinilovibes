@@ -1,8 +1,8 @@
 <div class="container mt-5 text-justify product-background">
 
-  <div class="text-overlay">
-    <h1><strong>Confirmación de Compra</strong></h1>
+   <div class="text-overlay flex-row d-flex justify-content-between">
     <div>
+      <h1><strong>Confirmación de Compra</strong></h1>
       <div>
         <p><strong>Producto: </strong><%= @product.name %></p>
         <p><strong>Artista: </strong><%= @product.artist %></p>
@@ -15,9 +15,14 @@
         <%= f.hidden_field :user_id, value: current_user.id %>
         <%= f.submit "Comprar!", class: "btn btn-primary fs-4" %>
       <% end %>
+      <div>
+        <%= link_to "Volver a la lista de vinilos", products_path, class:"btn btn-dark fw-bold fs-6", style: "margin-top: 20px;" %>
+      </div>
     </div>
-    <div>
-      <%= link_to "Volver a la lista de vinilos", products_path, class:"btn btn-warning fw-bold fs-6", style: "margin-top: 20px;" %>
+    <div class="mt-3">
+      <% if @product.photo.key.present? %>
+        <%= cl_image_tag @product.photo.key, height: 300, width: 400, crop: :fill, class: "product-photo"  %>
+      <% end %>
     </div>
   </div>
 </div>
