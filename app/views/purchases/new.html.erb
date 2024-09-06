@@ -13,7 +13,7 @@
         <%# No se pasan por params el product_id que viene del URL %>
         <%#= f.hidden_field :product_id, value: @product.id %>
         <%= f.hidden_field :user_id, value: current_user.id %>
-        <%= f.submit "Comprar!", class: "btn btn-primary fs-4" %>
+        <%= f.submit "Comprar!", class: "btn btn-success fs-4" %>
       <% end %>
       <div>
         <%= link_to "Volver a la lista de vinilos", products_path, class:"btn btn-dark fw-bold fs-6", style: "margin-top: 20px;" %>
